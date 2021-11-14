@@ -1,0 +1,19 @@
+{
+    "Name":  "Synapse User",
+    "Id":  null,
+    "IsCustom":  true,
+    "Description":  "Read Synapse Analytics resources and create support cases",
+    "Actions":  [
+		     "Microsoft.Synapse/workspaces/read",
+		     "Microsoft.Synapse/workspaces/bigDataPools/read",
+		     "Microsoft.Synapse/workspaces/sqlPools/read",
+		     "Microsoft.Synapse/workspaces/integrationruntimes/read",
+                   "Microsoft.Support/*"
+                ],
+    "NotActions":  [ ],
+    "DataActions":  [ ],
+    "NotDataActions":  [ ],
+    "AssignableScopes": [
+                    "/subscriptions/#######-####-####-####-#########"
+    ]
+}
