@@ -1,3 +1,5 @@
+-- pay attention to the schema reference [dbo], change when necessary
+
 CREATE TABLE [dbo].[READINGCSV] (
     [TIMESTAMP]		NVARCHAR (50)	NOT NULL,
     [AF3theta]		DECIMAL(7,3)  	NOT NULL,
