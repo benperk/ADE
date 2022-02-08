@@ -1,0 +1,3 @@
+spark.sql.hive.metastore.version 0.13
+spark.hadoop.hive.synapse.externalmetastore.linkedservice.name Metastore
+spark.sql.hive.metastore.jars /opt/hive-metastore/lib-0.13/*:/usr/hdp/current/hadoop-client/lib/*
