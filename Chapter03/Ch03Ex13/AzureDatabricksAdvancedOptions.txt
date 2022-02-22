@@ -1,0 +1,6 @@
+datanucleus.schema.autoCreateTables true
+spark.hadoop.javax.jdo.option.ConnectionUserName userid@servername
+datanucleus.fixedDatastore false
+spark.hadoop.javax.jdo.option.ConnectionURL jdbc:sqlserver://*:1433;database=dbname
+spark.hadoop.javax.jdo.option.ConnectionPassword *************
+spark.hadoop.javax.jdo.option.ConnectionDriverName com.microsoft.sqlserver.jdbc.SQLServerDriver
