@@ -16,7 +16,6 @@ INTO
 FROM
     [YourInputAlias]
 
-
 --CSV
 
 SELECT
@@ -26,3 +25,5 @@ INTO
     [YourOutputAlias]
 FROM
     [YourInputAlias]
+    
+--CSV Windowing 
