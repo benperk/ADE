@@ -1,0 +1,2465 @@
+%%pyspark
+#-------------------BEGIN Classical Music Conversion-----------------------#
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-0900.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-0900.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-0904.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-0904.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-0926.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-0926.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-0929.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-0929.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-0935.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-0935.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1016.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1016.parquet')
+
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1148.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1148.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1211.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1211.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1400.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1400.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1706.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1706.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1822.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1822.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1825.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1825.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1836.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1836.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1856.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1856.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1908.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1908.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1917.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1917.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-1922.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-1922.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-2054.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-2054.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/ClassicalMusic/POW/csharpguitar-brainjammer-pow-ClassicalMusic-2140.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-ClassicalMusic-2140.parquet')
+
+#-------------------END Classical Music Conversion-------------------#
+#-------------------BEGIN FlipBoard Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1224.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1224.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1643.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1643.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1156.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1156.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-0924.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-0924.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-0852.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-0852.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-2112.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-2112.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-2107.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-2107.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1223.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1223.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1919.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1919.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1005.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1005.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1339.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1339.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1734.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1734.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1938.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1938.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1834.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1834.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-0949.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-0949.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1848.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1848.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-2143.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-2143.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-2022.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-2022.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-0942.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-0942.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1835.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1835.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1336.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1336.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/FlipChart/POW/csharpguitar-brainjammer-pow-FlipChart-1248.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-FlipChart-1248.parquet')
+
+#-------------------END FlipBoard Conversion-------------------#
+
+
+#-------------------BEGIN Meditation Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-0802.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-0802.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-0848.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-0848.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-0916.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-0916.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-0930.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-0930.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-0951.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-0951.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1144.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1144.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1147.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1147.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1221.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1221.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1241.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1241.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1326.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1326.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1652.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1652.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1810.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1810.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1820.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1820.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1833.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1833.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1853.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1853.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1910.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1910.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-1932.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-1932.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-2032.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-2032.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-2033.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-2033.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/Meditation/POW/csharpguitar-brainjammer-pow-Meditation-2048.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-Meditation-2048.parquet')
+
+#-------------------END Meditation Conversion-------------------#
+#-------------------BEGIN Meditation Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-0901.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-0901.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-0903.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-0903.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-0915.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-0915.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-0926.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-0926.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1008.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1008.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1017.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1017.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1204.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1204.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1352.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1352.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1646.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1646.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1702.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1702.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1820.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1820.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1832.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1832.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1834.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1834.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1900.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1900.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1911.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1911.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-1925.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-1925.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-2046.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-2046.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/MetalMusic/POW/csharpguitar-brainjammer-pow-MetalMusic-2132.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-MetalMusic-2132.parquet')
+
+#-------------------END Metal Music Conversion-------------------#
+#-------------------BEGIN Playing Guitar Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1233.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1233.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1159.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1159.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-0911.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-0911.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-2042.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-2042.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1157.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1157.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1856.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1856.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1019.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1019.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1316.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1316.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1719.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1719.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1900.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1900.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1806.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1806.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-0934.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-0934.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1824.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1824.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-2128.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-2128.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1513.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1513.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-2037.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-2037.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-2033.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-2033.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1941.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1941.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1922.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1922.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/PlayingGuitar/POW/csharpguitar-brainjammer-pow-PlayingGuitar-1444.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-PlayingGuitar-1444.parquet')
+
+#-------------------END Playing Guitar Conversion-------------------#
+#-------------------BEGIN TikTok Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-2101.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-2101.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-2101.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-2101.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1214.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1214.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1922.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1922.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-0955.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-0955.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1330.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1330.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1723.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1723.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1928.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1928.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1854.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1854.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1852.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1852.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1831.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1831.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-0945.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-0945.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1845.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1845.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-2201.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-2201.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-2050.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-2050.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1937.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1937.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1030.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1030.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1938.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1938.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-1932.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-1932.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/TikTok/POW/csharpguitar-brainjammer-pow-TikTok-0940.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-TikTok-0940.parquet')
+
+#-------------------END TikTok Conversion-------------------#
+
+#-------------------BEGIN Work Email Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkEmail/POW/csharpguitar-brainjammer-pow-WorkEmail-1254.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkEmail-1254.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkEmail/POW/csharpguitar-brainjammer-pow-WorkEmail-1311.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkEmail-1311.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkEmail/POW/csharpguitar-brainjammer-pow-WorkEmail-1641.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkEmail-1641.parquet')
+
+#-------------------END Work Email Conversion-------------------#
+#-------------------BEGIN Work Meeting Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-0904.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-0904.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-0911.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-0911.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1305.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1305.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1320.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1320.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1332.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1332.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1344.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1344.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1601.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1601.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1606.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1606.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1617.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1617.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkMeeting/POW/csharpguitar-brainjammer-pow-WorkMeeting-1619.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkMeeting-1619.parquet')
+
+#-------------------END Work Meeting Conversion-------------------#
+
+#-------------------BEGIN Work No Email Conversion-----------------------#
+
+%%pyspark
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-0759.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-0759.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-0920.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-0920.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-0926.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-0926.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-0932.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-0932.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1342.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1342.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1349.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1349.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1403.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1403.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1500.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1500.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1506.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1506.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1526.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1526.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1715.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1715.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1836.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1836.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1842.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1842.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1846.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1846.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1851.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1851.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1858.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1858.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1914.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1914.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-1928.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-1928.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-2053.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-2053.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-2146.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-2146.parquet')
+
+df = spark.read.option("header","true").csv('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/SessionCSV/WorkNoEmail/POW/csharpguitar-brainjammer-pow-WorkNoEmail-2156.csv')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('csharpguitar-brainjammer-pow-WorkNoEmail-2156.parquet')
+
+
+#-------------------END Work No Email Conversion-------------------#
+#abfss://brainjammer@csharpguitarade.dfs.core.windows.net/user/trusted-service-user/csharpguitar-brainjammer-pow-WorkNoEmail-2156.parquett
+df = spark.read.parquet("csharpguitar-brainjammer-pow-WorkNoEmail-2156.parquet")
+df.show(5)
+
+
+csharpguitar-brainjammer-pow-WorkNoEmail-0759
+csharpguitar-brainjammer-pow-WorkNoEmail-0920
+csharpguitar-brainjammer-pow-WorkNoEmail-0926
+csharpguitar-brainjammer-pow-WorkNoEmail-0932
+csharpguitar-brainjammer-pow-WorkNoEmail-1200
+csharpguitar-brainjammer-pow-WorkNoEmail-1342
+csharpguitar-brainjammer-pow-WorkNoEmail-1349
+csharpguitar-brainjammer-pow-WorkNoEmail-1403
+csharpguitar-brainjammer-pow-WorkNoEmail-1500
+csharpguitar-brainjammer-pow-WorkNoEmail-1506
+csharpguitar-brainjammer-pow-WorkNoEmail-1526
+csharpguitar-brainjammer-pow-WorkNoEmail-1715
+csharpguitar-brainjammer-pow-WorkNoEmail-1836
+csharpguitar-brainjammer-pow-WorkNoEmail-1842
+csharpguitar-brainjammer-pow-WorkNoEmail-1846
+csharpguitar-brainjammer-pow-WorkNoEmail-1851
+csharpguitar-brainjammer-pow-WorkNoEmail-1858
+csharpguitar-brainjammer-pow-WorkNoEmail-1914
+csharpguitar-brainjammer-pow-WorkNoEmail-1928
+csharpguitar-brainjammer-pow-WorkNoEmail-2053
+csharpguitar-brainjammer-pow-WorkNoEmail-2146
+csharpguitar-brainjammer-pow-WorkNoEmail-2156
+
+
+csharpguitar-brainjammer-pow-Meditation-0802
+csharpguitar-brainjammer-pow-Meditation-0848
+csharpguitar-brainjammer-pow-Meditation-0916
+csharpguitar-brainjammer-pow-Meditation-0930
+csharpguitar-brainjammer-pow-Meditation-0951
+csharpguitar-brainjammer-pow-Meditation-1144
+csharpguitar-brainjammer-pow-Meditation-1147
+csharpguitar-brainjammer-pow-Meditation-1221
+csharpguitar-brainjammer-pow-Meditation-1241
+csharpguitar-brainjammer-pow-Meditation-1326
+csharpguitar-brainjammer-pow-Meditation-1652
+csharpguitar-brainjammer-pow-Meditation-1810
+csharpguitar-brainjammer-pow-Meditation-1820
+csharpguitar-brainjammer-pow-Meditation-1833
+csharpguitar-brainjammer-pow-Meditation-1853
+csharpguitar-brainjammer-pow-Meditation-1910
+csharpguitar-brainjammer-pow-Meditation-1932
+csharpguitar-brainjammer-pow-Meditation-2032
+csharpguitar-brainjammer-pow-Meditation-2033
+csharpguitar-brainjammer-pow-Meditation-2048
+
+csharpguitar-brainjammer-pow-MetalMusic-0901
+csharpguitar-brainjammer-pow-MetalMusic-0903
+csharpguitar-brainjammer-pow-MetalMusic-0915
+csharpguitar-brainjammer-pow-MetalMusic-0926
+csharpguitar-brainjammer-pow-MetalMusic-1008
+csharpguitar-brainjammer-pow-MetalMusic-1017
+csharpguitar-brainjammer-pow-MetalMusic-1204
+csharpguitar-brainjammer-pow-MetalMusic-1352
+csharpguitar-brainjammer-pow-MetalMusic-1646
+csharpguitar-brainjammer-pow-MetalMusic-1702
+csharpguitar-brainjammer-pow-MetalMusic-1820
+csharpguitar-brainjammer-pow-MetalMusic-1832
+csharpguitar-brainjammer-pow-MetalMusic-1834
+csharpguitar-brainjammer-pow-MetalMusic-1900
+csharpguitar-brainjammer-pow-MetalMusic-1911
+csharpguitar-brainjammer-pow-MetalMusic-1925
+csharpguitar-brainjammer-pow-MetalMusic-2046
+csharpguitar-brainjammer-pow-MetalMusic-2132
+
+
+csharpguitar-brainjammer-pow-PlayingGuitar-1233
+csharpguitar-brainjammer-pow-PlayingGuitar-1159
+csharpguitar-brainjammer-pow-PlayingGuitar-0911
+csharpguitar-brainjammer-pow-PlayingGuitar-2042
+csharpguitar-brainjammer-pow-PlayingGuitar-1157
+csharpguitar-brainjammer-pow-PlayingGuitar-1856
+csharpguitar-brainjammer-pow-PlayingGuitar-1019
+csharpguitar-brainjammer-pow-PlayingGuitar-1316
+csharpguitar-brainjammer-pow-PlayingGuitar-1719
+csharpguitar-brainjammer-pow-PlayingGuitar-1900
+csharpguitar-brainjammer-pow-PlayingGuitar-1806
+csharpguitar-brainjammer-pow-PlayingGuitar-0934
+csharpguitar-brainjammer-pow-PlayingGuitar-1824
+csharpguitar-brainjammer-pow-PlayingGuitar-2128
+csharpguitar-brainjammer-pow-PlayingGuitar-1513
+csharpguitar-brainjammer-pow-PlayingGuitar-2037
+csharpguitar-brainjammer-pow-PlayingGuitar-2033
+csharpguitar-brainjammer-pow-PlayingGuitar-1941
+csharpguitar-brainjammer-pow-PlayingGuitar-1922
+csharpguitar-brainjammer-pow-PlayingGuitar-1444
+
+csharpguitar-brainjammer-pow-TikTok-2101
+csharpguitar-brainjammer-pow-TikTok-1214
+csharpguitar-brainjammer-pow-TikTok-1922
+csharpguitar-brainjammer-pow-TikTok-0955
+csharpguitar-brainjammer-pow-TikTok-1330
+csharpguitar-brainjammer-pow-TikTok-1723
+csharpguitar-brainjammer-pow-TikTok-1928
+csharpguitar-brainjammer-pow-TikTok-1854
+csharpguitar-brainjammer-pow-TikTok-1852
+csharpguitar-brainjammer-pow-TikTok-1831
+csharpguitar-brainjammer-pow-TikTok-0945
+csharpguitar-brainjammer-pow-TikTok-1845
+csharpguitar-brainjammer-pow-TikTok-2201
+csharpguitar-brainjammer-pow-TikTok-2050
+csharpguitar-brainjammer-pow-TikTok-1937
+csharpguitar-brainjammer-pow-TikTok-1030
+csharpguitar-brainjammer-pow-TikTok-1938
+csharpguitar-brainjammer-pow-TikTok-1932
+csharpguitar-brainjammer-pow-TikTok-0940
+
+
+csharpguitar-brainjammer-pow-WorkEmail-1254
+csharpguitar-brainjammer-pow-WorkEmail-1311
+csharpguitar-brainjammer-pow-WorkEmail-1641
+
+
+csharpguitar-brainjammer-pow-WorkMeeting-0904
+csharpguitar-brainjammer-pow-WorkMeeting-0911
+csharpguitar-brainjammer-pow-WorkMeeting-1305
+csharpguitar-brainjammer-pow-WorkMeeting-1320
+csharpguitar-brainjammer-pow-WorkMeeting-1332
+csharpguitar-brainjammer-pow-WorkMeeting-1344
+csharpguitar-brainjammer-pow-WorkMeeting-1601
+csharpguitar-brainjammer-pow-WorkMeeting-1606
+csharpguitar-brainjammer-pow-WorkMeeting-1617
+csharpguitar-brainjammer-pow-WorkMeeting-1619
+
+
