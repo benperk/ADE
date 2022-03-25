@@ -1,0 +1,8 @@
+%%pyspark
+df = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/SessionCSV/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.csv', \ 
+     format='csv', header=True)
+df.write.partitionBy('SCENARIO').mode('overwrite').csv('/SessionCSV/ScenarioPartitions')
+data = spark.read.csv('/SessionCSV/ScenarioPartitions/SCENARIO=Meditation')
+data.show(5)
+data = spark.read.csv('/SessionCSV/ScenarioPartitions/SCENARIO=PlayingGuitar')
+data.show(5)
