@@ -41,7 +41,7 @@ WITH
   DISTRIBUTION = REPLICATE
 )
 GO
-CREATE TABLE [brainwaves].[SESSION] (
+CREATE TABLE [brainwaves].[DimSESSION] (
   [SESSION_ID] 	INT           NOT NULL,
   [SCENARIO_ID] 	INT           NOT NULL,
   [MODE_ID] 	INT           NOT NULL,
