@@ -1,0 +1,16 @@
+%%pyspark
+df = spark.read.option("header","true") \
+  .csv('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/04/01/18/*')
+headers = spark.createDataFrame([("Timestamp", "Timestamp"), 
+  ("AF3theta", "AF3/theta"), ("AF3alpha", "AF3/alpha"), ("AF3betaL", "AF3/betaL"),
+  ("AF3betaH", "AF3/betaH"), ("AF3gamma", "AF3/gamma"), ("T7theta", "T7/theta"), 
+  ("T7alpha", "T7/alpha"), ("T7betaL", "T7/betaL"), ("T7betaH", "T7/betaH"), 
+  ("T7gamma", "T7/gamma"), ("Pztheta", "Pz/theta"), ("Pzalpha", "Pz/alpha"), 
+  ("PzbetaL", "Pz/betaL"), ("PzbetaH", "Pz/betaH"), ("Pzgamma", "Pz/gamma"), 
+  ("T8theta", "T8/theta"), ("T8alpha", "T8/alpha"), ("T8betaL", "T8/betaL"), 
+  ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
+  ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
+  ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
+newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+dfh = df.toDF(*newHeaders)
+dfh.write.mode("overwrite").parquet('/EMEA/brainjammer/out/2022/04/03/17/sampleBrainwaves.parquet')
