@@ -3,7 +3,7 @@ SELECT
 FROM
     OPENROWSET(
         BULK (
-            'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/*.csv'
+            'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/*.csv'
         ),
         FORMAT = 'CSV',
         PARSER_VERSION = '2.0',
@@ -15,15 +15,15 @@ SELECT
 FROM
     OPENROWSET(
         BULK (
-      'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-ClassicalMusic-2140.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-FlipChart-1248.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-Meditation-2048.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-MetalMusic-2132.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-PlayingGuitar-1444.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-TikTok-0940.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkEmail-1641.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkMeeting-1619.csv',
-			'https://csharpguitarade.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkNoEmail-2156.csv'
+      'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-ClassicalMusic-2140.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-FlipChart-1248.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-Meditation-2048.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-MetalMusic-2132.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-PlayingGuitar-1444.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-TikTok-0940.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkEmail-1641.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkMeeting-1619.csv',
+			'https://csharpguitar.dfs.core.windows.net/brainjammer/EMEA/brainjammer/in/2022/04/01/18/csharpguitar-brainjammer-pow-WorkNoEmail-2156.csv'
         ),
         FORMAT = 'CSV',
         PARSER_VERSION = '2.0',
