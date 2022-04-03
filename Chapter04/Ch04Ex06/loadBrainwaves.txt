@@ -1,0 +1,4 @@
+%%pyspark
+df = spark.read.option("header","true") \
+  .csv('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/04/01/18/*')
+display(df.limit(10))
