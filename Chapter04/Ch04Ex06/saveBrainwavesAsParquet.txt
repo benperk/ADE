@@ -11,6 +11,6 @@ headers = spark.createDataFrame([("Timestamp", "Timestamp"),
   ("T8betaH", "T8/betaH"), ("T8gamma", "T8/gamma"), ("AF4theta", "AF4/theta"), 
   ("AF4alpha", "AF4/alpha"), ("AF4betaL", "AF4/betaL"), ("AF4betaH", "AF4/betaH"), 
   ("AF4/gamma", "AF4/gamma")],['newHeader','oldHeader'])
-newHeaders = headers.sort('oldHeader').select('newHeader').rdd.flatMap(lambda x: x).collect()
+newHeaders = headers.select('newHeader').rdd.flatMap(lambda x: x).collect()
 dfh = df.toDF(*newHeaders)
 dfh.write.mode("overwrite").parquet('/EMEA/brainjammer/out/2022/04/03/17/sampleBrainwaves.parquet')
