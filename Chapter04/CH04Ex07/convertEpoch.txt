@@ -1,1 +1,0 @@
-toTimestamp(toLong(toDecimal(Timestamp, 14, 4) * (1000l)))
