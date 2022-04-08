@@ -42,3 +42,5 @@ WITH
  DATA_SOURCE = SampleBrainwavesSource,
  FILE_FORMAT = SampleBrainwavesParquet
 )
+
+SELECT TOP 10 * FROM SampleBrainwaves
