@@ -1,0 +1,9 @@
+%%pyspark
+df = spark.read.load('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/in/2022/04/10/10/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.csv', format='csv', header=True)
+#display(df.limit(10))
+df.write.mode("overwrite").parquet('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/10/11/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.parquet')
+------------------------------------------------------------
+%%pyspark
+df = spark.read.load('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/10/11/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.parquet', format='parquet', header=True)
+print(df.count())
+-----------------------------------------------------------
