@@ -20,6 +20,6 @@ df_year_month_day.write.partitionBy("year", "month") \
   .parquet('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/raw-data/2022/04/10')
 -----------------------------------------------------------
 %%pyspark
-df = spark.read.load('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/raw-data/2022/04/10/year=2021/month=7', format='parquet', header=True)
+df = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/raw-data/2022/04/10/year=2021/month=7', format='parquet', header=True)
 print(df.count())
 display(df.limit(10))
