@@ -7,3 +7,15 @@ df.write.mode("overwrite").parquet('abfss://brainjammer@csharpguitarade.dfs.core
 df = spark.read.load('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/10/11/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.parquet', format='parquet', header=True)
 print(df.count())
 -----------------------------------------------------------
+%%pyspark
+from pyspark.sql.functions import year, month, col
+df = spark.read.load('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/10/11/ALL_SCENARIO_ELECTRODE_FREQUENCY_VALUE.parquet', format='parquet', header=True)
+df_year_month_day = (df.withColumn("year", year(col("SESSION_DATETIME").cast("timestamp"))) \
+         .withColumn("month", month(col("SESSION_DATETIME").cast("timestamp"))))
+-----------------------------------------------------------
+%%pyspark
+from pyspark.sql.functions import year, month, col
+df_year_month_day.write.partitionBy("year", "month") \
+  .mode("overwrite") \
+  .parquet('abfss://brainjammer@csharpguitarade.dfs.core.windows.net/EMEA/brainjammer/raw-data/2022/04/10')
+-----------------------------------------------------------
