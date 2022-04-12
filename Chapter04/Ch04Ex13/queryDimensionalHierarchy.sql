@@ -1,6 +1,6 @@
 --TOP DOWN
 SELECT * FROM [dimensional].[MODE] WHERE [MODE_ID] = 1
-SELECT * FROM [dimensional].[MODE] WHERE [MODE_ID] = 1
+SELECT * FROM [dimensional].[MODE] WHERE [MODE_ID] = 2
 ---------------------
 --ELECTRODE 1, MODE 1
 SELECT * FROM [dimensional].[ELECTRODE] WHERE [ELECTRODE_ID] = 1 AND [MODE_ID] = 1
