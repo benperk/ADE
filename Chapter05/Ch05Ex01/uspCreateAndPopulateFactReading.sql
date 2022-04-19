@@ -1,5 +1,6 @@
 --DROP TABLE [brainwaves].[FactREADING]
 --DROP PROCEDURE [brainwaves].[uspCreateAndPopulateFactReading]
+--DELETE FROM [brainwaves].[TmpREADING]
 
 CREATE PROCEDURE brainwaves.uspCreateAndPopulateFactReading
 AS 
