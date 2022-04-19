@@ -10,7 +10,7 @@ AS
     DISTRIBUTION = HASH ([FREQUENCY])
     )
     AS
-    SELECT  TOP (10) se.SESSION_DATETIME, r.READING_DATETIME, 
+    SELECT  se.SESSION_DATETIME, r.READING_DATETIME, 
             s.SCENARIO, e.ELECTRODE, f.FREQUENCY, r.[VALUE]
     FROM    [brainwaves].[DimSESSION] se, [brainwaves].[TmpREADING] r, 
             [brainwaves].[DimSCENARIO] s, [brainwaves].[DimELECTRODE] e, 
