@@ -1,0 +1,39 @@
+%%pyspark
+df = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/04/28/16/*.parquet', format='parquet')
+#print("Total brainwave readings: " + str(df.distinct().count()))
+#display(df.limit(10))
+df.registerTempTable("TmpREADING")
+# LOAD MODE
+dfMODE = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/MODE.csv', format='csv', header=True)
+dfMODE.createOrReplaceTempView("MODE")
+#print("MODEs: " + str(dfMODE.distinct().count()))
+# LOAD ELECTRODE
+dfELECTRODE = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/ELECTRODE.csv', format='csv', header=True)
+dfELECTRODE.createOrReplaceTempView("ELECTRODE")
+#print("ELECTRODEs: " + str(dfELECTRODE.distinct().count()))
+# LOAD FREQUENCY
+dfFREQUENCY = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/FREQUENCY.csv', format='csv', header=True)
+dfFREQUENCY.createOrReplaceTempView("FREQUENCY")
+#print("FREQUENCYs: " + str(dfFREQUENCY.distinct().count()))
+# LOAD SCENARIO
+dfSCENARIO = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/SCENARIO.csv', format='csv', header=True)
+dfSCENARIO.createOrReplaceTempView("SCENARIO")
+#print("SCENARIOs: " + str(dfSCENARIO.distinct().count()))
+# LOAD SESSION
+dfSESSION = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/SESSIONALL.csv', format='csv', header=True)
+dfSESSION.createOrReplaceTempView("SESSION")
+#print("SESSIONs: " + str(dfSESSION.distinct().count()))
+dfREADING = sqlContext.sql("""
+    SELECT  se.SESSION_DATETIME, r.READING_DATETIME, 
+            s.SCENARIO, e.ELECTRODE, f.FREQUENCY, r.VALUE
+    FROM    SESSION se, TmpREADING r, SCENARIO s, 
+            ELECTRODE e, FREQUENCY f
+    WHERE   r.SESSION_ID = se.SESSION_ID AND se.SCENARIO_ID = s.SCENARIO_ID 
+            AND r.ELECTRODE_ID = e.ELECTRODE_ID AND r.FREQUENCY_ID = f.FREQUENCY_ID
+""")
+#print("READINGs: " + str(dfREADING.distinct().count()))
+#display(dfREADING.limit(10))
+dfREADING.write.parquet('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/28/17/BrainjammerBrainwavesSpark.parquet')
+#dfFactREADING = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/out/2022/04/28/17/BrainjammerBrainwavesSpark.parquet', format='parquet')
+#print("Total brainwave readings: " + str(dfFactREADING.distinct().count()))
+#display(dfFactREADING.limit(100))
