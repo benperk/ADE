@@ -5,23 +5,23 @@ df = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA
 df.registerTempTable("TmpREADING")
 # LOAD MODE
 dfMODE = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/MODE.csv', format='csv', header=True)
-dfMODE.createOrReplaceTempView("MODE")
+dfMODE.registerTempTable("MODE")
 #print("MODEs: " + str(dfMODE.distinct().count()))
 # LOAD ELECTRODE
 dfELECTRODE = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/ELECTRODE.csv', format='csv', header=True)
-dfELECTRODE.createOrReplaceTempView("ELECTRODE")
+dfELECTRODE.registerTempTable("ELECTRODE")
 #print("ELECTRODEs: " + str(dfELECTRODE.distinct().count()))
 # LOAD FREQUENCY
 dfFREQUENCY = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/FREQUENCY.csv', format='csv', header=True)
-dfFREQUENCY.createOrReplaceTempView("FREQUENCY")
+dfFREQUENCY.registerTempTable("FREQUENCY")
 #print("FREQUENCYs: " + str(dfFREQUENCY.distinct().count()))
 # LOAD SCENARIO
 dfSCENARIO = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/SCENARIO.csv', format='csv', header=True)
-dfSCENARIO.createOrReplaceTempView("SCENARIO")
+dfSCENARIO.registerTempTable("SCENARIO")
 #print("SCENARIOs: " + str(dfSCENARIO.distinct().count()))
 # LOAD SESSION
 dfSESSION = spark.read.load('abfss://brainjammer@csharpguitar.dfs.core.windows.net/Tables/SESSIONALL.csv', format='csv', header=True)
-dfSESSION.createOrReplaceTempView("SESSION")
+dfSESSION.registerTempTable("SESSION")
 #print("SESSIONs: " + str(dfSESSION.distinct().count()))
 dfREADING = sqlContext.sql("""
     SELECT  se.SESSION_DATETIME, r.READING_DATETIME, 
