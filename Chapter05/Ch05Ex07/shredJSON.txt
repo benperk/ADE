@@ -1,0 +1,30 @@
+SELECT TOP 10 Scenario, ReadingDate, 
+        AF3THETA, AF3ALPHA, AF3BETA_L, AF3BETA_H, AF3GAMMA,
+        AF4THETA, AF4ALPHA, AF4BETA_L, AF4BETA_H, AF4GAMMA,
+        T7THETA, T7ALPHA, T7BETA_L, T7BETA_H, T7GAMMA,
+        T8THETA, T8ALPHA, T8BETA_L, T8BETA_H, T8GAMMA,
+        PzTHETA, PzALPHA, PzBETA_L, PzBETA_H, PzGAMMA
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=csharpguitar;Database=brainjammer;Key=sMxCNR.......ko7cJxyQ==',
+                OBJECT = 'sessions')
+WITH ( Scenario varchar(max) '$.Session.Scenario',  POWReading varchar(max) '$.Session.POWReading') AS readings
+CROSS APPLY OPENJSON(readings.POWReading) AS reading
+CROSS APPLY OPENJSON(reading.[value])
+    WITH (
+        ReadingDate varchar(50),
+        AF3THETA decimal(7,3) '$.AF3[0].THETA', 
+        AF3ALPHA decimal(7,3) '$.AF3[0].ALPHA', AF3BETA_L decimal(7,3) '$.AF3[0].BETA_L', 
+        AF3BETA_H decimal(7,3) '$.AF3[0].BETA_H', AF3GAMMA decimal(7,3) '$.AF3[0].GAMMA',
+        AF4THETA decimal(7,3) '$.AF4[0].THETA', 
+        AF4ALPHA decimal(7,3) '$.AF4[0].ALPHA', AF4BETA_L decimal(7,3) '$.AF4[0].BETA_L', 
+        AF4BETA_H decimal(7,3) '$.AF4[0].BETA_H', AF4GAMMA decimal(7,3) '$.AF4[0].GAMMA',
+        T7THETA decimal(7,3) '$.T7[0].THETA', 
+        T7ALPHA decimal(7,3) '$.T7[0].ALPHA', T7BETA_L decimal(7,3) '$.T7[0].BETA_L', 
+        T7BETA_H decimal(7,3) '$.T7[0].BETA_H', T7GAMMA decimal(7,3) '$.T7[0].GAMMA',
+        T8THETA decimal(7,3) '$.T8[0].THETA', 
+        T8ALPHA decimal(7,3) '$.T8[0].ALPHA', T8BETA_L decimal(7,3) '$.T8[0].BETA_L', 
+        T8BETA_H decimal(7,3) '$.T8[0].BETA_H', T8GAMMA decimal(7,3) '$.T8[0].GAMMA',
+        PzTHETA decimal(7,3) '$.Pz[0].THETA', 
+        PzALPHA decimal(7,3) '$.Pz[0].ALPHA', PzBETA_L decimal(7,3) '$.Pz[0].BETA_L', 
+        PzBETA_H decimal(7,3) '$.Pz[0].BETA_H', PzGAMMA decimal(7,3) '$.Pz[0].GAMMA'
+    ) AS brainwave
