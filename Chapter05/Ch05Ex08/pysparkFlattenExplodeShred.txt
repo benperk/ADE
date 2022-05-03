@@ -1,0 +1,33 @@
+%%pyspark
+from pyspark.sql.functions import explode, col
+df = spark.read.option('multiline', 'true') \
+  .json('abfss://brainjammer@csharpguitar.dfs.core.windows.net/SessionJson/PlayingGuitar/POW/csharpguitar-brainjammer-pow-0914.json')
+flatten = df.select('Session')
+flatten.show()
+#--------------------
+flatten = df.select('Session', 'Session.Scenario', 
+                    'Session.POWReading.ReadingDate', 'Session.POWReading')
+flatten.show() # truncate=False
+#--------------------
+exploded = df.select(col('Session.Scenario').alias('SCENARIO'), explode('Session.POWReading').alias('READING'))
+exploded.printSchema()
+exploded.show(5)
+#--------------------
+shredded = exploded.select('SCENARIO', 
+    col('READING.AF3.THETA').alias('AF3THETA'), 
+    col('READING.AF3.ALPHA').alias('AF3ALPHA'), col('READING.AF3.BETA_L').alias('AF3BETA_L'),
+    col('READING.AF3.BETA_H').alias('AF3BETA_H'), col('READING.AF3.GAMMA').alias('AF34GAMMA'),
+    col('READING.AF4.THETA').alias('AF4THETA'), 
+    col('READING.AF4.ALPHA').alias('AF4ALPHA'), col('READING.AF4.BETA_L').alias('AF4BETA_L'),
+    col('READING.AF4.BETA_H').alias('AF4BETA_H'), col('READING.AF4.GAMMA').alias('AF4GAMMA'),
+    col('READING.T7.THETA').alias('T7THETA'), 
+    col('READING.T7.ALPHA').alias('T7ALPHA'), col('READING.T7.BETA_L').alias('T7BETA_L'),
+    col('READING.T7.BETA_H').alias('T7BETA_H'), col('READING.T7.GAMMA').alias('T7GAMMA'),
+    col('READING.T8.THETA').alias('T8THETA'), 
+    col('READING.T8.ALPHA').alias('T8ALPHA'), col('READING.T8.BETA_L').alias('T8BETA_L'),
+    col('READING.T8.BETA_H').alias('T8BETA_H'), col('READING.T8.GAMMA').alias('T8GAMMA'),
+    col('READING.Pz.THETA').alias('PzTHETA'), 
+    col('READING.Pz.ALPHA').alias('PzALPHA'), col('READING.Pz.BETA_L').alias('PzBETA_L'),
+    col('READING.Pz.BETA_H').alias('PzBETA_H'), col('READING.Pz.GAMMA').alias('PzGAMMA'))
+#exploded.printSchema()
+shredded.show(5)
