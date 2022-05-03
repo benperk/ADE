@@ -1,0 +1,25 @@
+%%pyspark
+df = spark.read \
+  .load('abfss://*@*.dfs.core.windows.net/SessionCSV/BRAINWAVES_WITH_NULLS.csv',
+  format='csv', header=True)
+
+df.filter(df.SESSION_DATETIME.isNull() | df.READING_DATETIME.isNull() \
+   | df.SCENARIO.isNull() | df.ELECTRODE.isNull() | df.FREQUENCY.isNull() \
+   | df.VALUE.isNull()).show()
+
+print((df.count(), len(df.columns)))
+#(35, 8)
+#-------------------------------
+df = df.na.drop(“any”)
+print((df.count(), len(df.columns)))
+df.show()
+#(24, 6)
+#-------------------------------
+df = df.filter(df.VALUE != '2X.n66').filter(df.VALUE != '4.c1..') \
+     .filter(df.READING_DATETIME != '7/40/2021  12:41:00 PM')
+print((df.count(), len(df.columns)))
+#(21, 6)
+#-------------------------------
+df = df.drop(df.SESSION_DATETIME, df. READING_DATETIME)
+print((df.count(), len(df.columns)))
+#(21, 4)
