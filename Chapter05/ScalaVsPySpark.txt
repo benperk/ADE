@@ -1,0 +1,24 @@
+case class Mode(id: Int, name: String)
+case class Scenario(id: Int, name: String)
+case class Session(mode: Mode, scenario: Scenario)
+
+val mode1 = new Mode(1, "POW")
+val scenario1 = new Scenario(3, "Meditation")
+val scenario2 = new Scenario(4, "MetalMusic")
+val session1 = new Session(mode1, scenario1) 
+
+val scenariosSeq = Seq(scenario1, scenario2)
+val df = scenariosSeq.toDF()
+display(df)
+
+#-----------------------------------------------------
+
+from pyspark.sql import *
+
+mode1 = Row(id='1', name='POW')
+scenario1 = Row(id='3', name='Meditation')
+scenario2 = Row(id='4', name='MetalMusic')
+scenarios = Row(mode=mode1, scenario=[scenario1, scenario2])
+scenariosSeq = [scenario1, scenario2]
+df = spark.createDataFrame(scenariosSeq)
+df.show()
