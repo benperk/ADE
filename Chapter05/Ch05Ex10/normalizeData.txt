@@ -1,7 +1,7 @@
 from pyspark.ml.feature import MinMaxScaler
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml import Pipeline
-#from pyspark.sql.functions import udf
+from pyspark.sql.functions import udf
 from pyspark.sql.types import DoubleType
 
 df = spark.createDataFrame([ ('TikTok', 'ALPHA',8.037698,28.50230489,812.381384,2.374,1.540779024,5.635876),
@@ -14,7 +14,7 @@ df = spark.createDataFrame([ ('TikTok', 'ALPHA',8.037698,28.50230489,812.381384,
 print("Before normalization :")
 df.show()
 
-#unlist = udf(lambda x: round(float(list(x)[0]),3), DoubleType())
+unlist = udf(lambda x: round(float(list(x)[0]),3), DoubleType())
 
 for b in ["AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"]:
     assembler = VectorAssembler(inputCols=[b],outputCol=b+"_Vect")
