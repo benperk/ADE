@@ -1,0 +1,8 @@
+%%pyspark
+import numpy as np
+data = np.array([8.03769,4.15734,5.61691,2.25973,18.7486])
+data_min = min(data)
+data_max = max(data)
+normalized = (data - data_min) / (data_max - data_min)
+denormalized = (normalized * (data_max - data_min) + data_min)
+denormalized
