@@ -1,0 +1,26 @@
+from pyspark.ml.feature import MinMaxScaler
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml import Pipeline
+from pyspark.sql.functions import udf
+from pyspark.sql.types import DoubleType
+
+df = spark.createDataFrame([ ('TikTok', 'ALPHA',8.037698,28.50230489,812.381384,2.374,1.540779024,5.635876),
+                             ('TikTok', 'BETA_H',4.157344,15.90465452,252.9580353,1.387,1.177709642,1.923769),
+                             ('TikTok', 'BETA_L',5.616911,23.43532765,549.2145819,1.847,1.359043781,3.411409),
+                             ('TikTok', 'GAMMA',2.259732,8.469464627,71.73183106,0.898,0.947628619,0.806404),
+                             ('TikTok', 'THETA',18.7486,39.01921698,1522.499294,3.54,1.881488772,12.5316)], 
+                             ["SCENARIO", "FREQUENCY","AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"])
+                            
+print("Before normalization :")
+df.show()
+
+unlist = udf(lambda x: round(float(list(x)[0]),3), DoubleType())
+
+for b in ["AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"]:
+    assembler = VectorAssembler(inputCols=[b],outputCol=b+"_Vect")
+    scaler = MinMaxScaler(inputCol=b+"_Vect", outputCol=b+"_Scaled")
+    pipeline = Pipeline(stages=[assembler, scaler])
+    df = pipeline.fit(df).transform(df).withColumn(b+"_Scaled", unlist(b+"_Scaled")).drop(b+"_Vect")
+
+print("After normalization :")
+df.show()
