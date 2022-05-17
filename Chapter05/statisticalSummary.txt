@@ -1,0 +1,12 @@
+SELECT DISTINCT SCENARIO,
+       COUNT(SCENARIO) OVER (partition by SCENARIO) as COUNT,
+       AVG([VALUE]) OVER (partition by SCENARIO) as MEAN,
+       STDEV([VALUE]) OVER (partition by SCENARIO) as STANDARDDEV,
+       MIN([VALUE]) OVER (partition by SCENARIO) as MINIMUM,
+       PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY [VALUE]) OVER (partition by SCENARIO) as '25%',
+       PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [VALUE]) OVER (partition by SCENARIO) as '50%',
+       PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY [VALUE]) OVER (partition by SCENARIO) as '75%',
+       MAX([VALUE]) OVER (partition by SCENARIO) as MAXIMUM,
+       VAR([VALUE]) OVER (partition by SCENARIO) as VARIANCE
+FROM brainwaves.FactREADING
+ORDER BY SCENARIO
