@@ -1,3 +1,10 @@
+----------Notebook - Ch05Ex13N
+-----Cell #1
+%%spark
+val df = spark.read.sqlanalytics("SQLPool.brainwaves.SCENARIO_FREQUENCY")
+df.createOrReplaceTempView("NormalizedBrainwavesSE")
+-------------------------------------------
+-----Cell #2
 from pyspark.ml.feature import MinMaxScaler
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml import Pipeline
