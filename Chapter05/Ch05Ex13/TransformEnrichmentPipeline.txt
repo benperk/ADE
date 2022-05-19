@@ -46,3 +46,28 @@ CREATE TABLE [brainwaves].[FactREADING]
 %%spark
 val df = spark.read.sqlanalytics("SQLPool.brainwaves.FactREADING") 
 df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet")
+
+-----AGGREGATE Script activity
+IF OBJECT_ID (N'brainwaves.SCENARIO_FREQUENCY', N'U') IS NOT NULL
+ DROP TABLE [SCENARIO_FREQUENCY].[SCENARIO_FREQUENCY]
+
+CREATE TABLE [brainwaves].[SCENARIO_FREQUENCY]
+WITH
+(
+  CLUSTERED COLUMNSTORE INDEX,
+  DISTRIBUTION = REPLICATE
+)
+AS
+SELECT DISTINCT SCENARIO, FREQUENCY,
+       AVG([VALUE]) OVER (partition by SCENARIO, FREQUENCY) as AVERAGE,
+       STDEV([VALUE]) OVER (partition by SCENARIO, FREQUENCY) as STANDARDDEV,
+       VAR([VALUE]) OVER (partition by SCENARIO, FREQUENCY) as VARIANCE,
+       PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [VALUE]) 
+          OVER (partition by SCENARIO, FREQUENCY) as MEDIAN,
+       SQRT(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [VALUE]) 
+          OVER (partition by SCENARIO, FREQUENCY)) AS SQUAREROOT,
+       SQUARE(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [VALUE]) 
+          OVER (partition by SCENARIO, FREQUENCY)) AS SQUARED
+FROM brainwaves.FactREADING
+
+---Notebook - Ch05Ex13N
