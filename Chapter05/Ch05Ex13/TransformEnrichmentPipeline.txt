@@ -1,10 +1,10 @@
----DROP Tables Script activity
+----------DROP Tables Script activity
 IF OBJECT_ID (N'brainwaves.FactREADING', N'U') IS NOT NULL
  DROP TABLE [brainwaves].[FactREADING]
 IF OBJECT_ID (N'brainwaves.SCENARIO_FREQUENCY', N'U') IS NOT NULL
  DROP TABLE [brainwaves].[SCENARIO_FREQUENCY]
-
----SETUP Staging Script activity
+------------------------------------------------------------------
+----------SETUP Staging Script activity
 IF OBJECT_ID (N'staging.TmpREADING', N'U') IS NOT NULL
  DELETE FROM [staging].[TmpREADING]
 ELSE
@@ -23,10 +23,11 @@ ELSE
 	DISTRIBUTION = ROUND_ROBIN,
 	CLUSTERED COLUMNSTORE INDEX
   )
----REMOVE Outliers Data flow
+------------------------------------------------------------------
+----------REMOVE Outliers Data flow
 VALUE > 0.274 && VALUE < 392
-
----FactREADING Script activity
+------------------------------------------------------------------
+----------FactREADING Script activity
 CREATE TABLE [brainwaves].[FactREADING]
   WITH
   (
@@ -41,13 +42,13 @@ CREATE TABLE [brainwaves].[FactREADING]
             [brainwaves].[DimFREQUENCY] f
     WHERE   r.SESSION_ID = se.SESSION_ID AND se.SCENARIO_ID = s.SCENARIO_ID 
             AND r.ELECTRODE_ID = e.ELECTRODE_ID AND r.FREQUENCY_ID = f.FREQUENCY_ID
-
------Notebook - Ch05Ex13TB
+------------------------------------------------------------------
+----------Notebook - Ch05Ex13TB
 %%spark
 val df = spark.read.sqlanalytics("SQLPool.brainwaves.FactREADING") 
 df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet")
-
------AGGREGATE Script activity
+------------------------------------------------------------------
+----------AGGREGATE Script activity
 IF OBJECT_ID (N'brainwaves.SCENARIO_FREQUENCY', N'U') IS NOT NULL
  DROP TABLE [SCENARIO_FREQUENCY].[SCENARIO_FREQUENCY]
 
@@ -69,21 +70,4 @@ SELECT DISTINCT SCENARIO, FREQUENCY,
        SQUARE(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [VALUE]) 
           OVER (partition by SCENARIO, FREQUENCY)) AS SQUARED
 FROM brainwaves.FactREADING
-
----Notebook - Ch05Ex13N
-from pyspark.ml.feature import MinMaxScaler
-from pyspark.ml.feature import VectorAssembler
-from pyspark.ml import Pipeline
-from pyspark.sql.functions import udf
-from pyspark.sql.types import DoubleType
-
-df = spark.sql("SELECT * FROM NormalizedBrainwavesSE ORDER BY SCENARIO, FREQUENCY")
-unlist = udf(lambda x: round(float(list(x)[0]),3), DoubleType())
-
-for b in ["AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"]:
-    assembler = VectorAssembler(inputCols=[b],outputCol=b+"_Vect")
-    scaler = MinMaxScaler(inputCol=b+"_Vect", outputCol=b+"_Scaled")
-    pipeline = Pipeline(stages=[assembler, scaler])
-    df = pipeline.fit(df).transform(df).withColumn(b+"_Scaled", unlist(b+"_Scaled")).drop(b+"_Vect")
-df.show() 
-df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.parquet") 
+------------------------------------------------------------------
