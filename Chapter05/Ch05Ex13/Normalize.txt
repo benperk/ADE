@@ -20,5 +20,5 @@ for b in ["AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"
     pipeline = Pipeline(stages=[assembler, scaler])
     df = pipeline.fit(df).transform(df).withColumn(b+"_Scaled", unlist(b+"_Scaled")).drop(b+"_Vect")
 df.show() 
-df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.parquet") 
-df.write.mode("overwrite").csv("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.csv") 
+df.write.mode("overwrite").option("header", "true").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.parquet") 
+df.write.mode("overwrite").option("header", "true").csv("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.csv")
