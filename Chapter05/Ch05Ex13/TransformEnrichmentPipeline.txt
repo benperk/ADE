@@ -42,3 +42,8 @@ CREATE TABLE [brainwaves].[FactREADING]
             [brainwaves].[DimFREQUENCY] f
     WHERE   r.SESSION_ID = se.SESSION_ID AND se.SCENARIO_ID = s.SCENARIO_ID 
             AND r.ELECTRODE_ID = e.ELECTRODE_ID AND r.FREQUENCY_ID = f.FREQUENCY_ID
+
+-----Notebook - Ch05Ex13TB
+%%spark
+val df = spark.read.sqlanalytics("SQLPool.brainwaves.FactREADING") 
+df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet")
