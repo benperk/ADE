@@ -71,3 +71,19 @@ SELECT DISTINCT SCENARIO, FREQUENCY,
 FROM brainwaves.FactREADING
 
 ---Notebook - Ch05Ex13N
+from pyspark.ml.feature import MinMaxScaler
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml import Pipeline
+from pyspark.sql.functions import udf
+from pyspark.sql.types import DoubleType
+
+df = spark.sql("SELECT * FROM NormalizedBrainwavesSE ORDER BY SCENARIO, FREQUENCY")
+unlist = udf(lambda x: round(float(list(x)[0]),3), DoubleType())
+
+for b in ["AVERAGE","STANDARDDEV", "VARIANCE", "MEDIAN", "SQUAREROOT", "SQUARED"]:
+    assembler = VectorAssembler(inputCols=[b],outputCol=b+"_Vect")
+    scaler = MinMaxScaler(inputCol=b+"_Vect", outputCol=b+"_Scaled")
+    pipeline = Pipeline(stages=[assembler, scaler])
+    df = pipeline.fit(df).transform(df).withColumn(b+"_Scaled", unlist(b+"_Scaled")).drop(b+"_Vect")
+df.show() 
+df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/15/NormalizedBrainwavesSE.parquet") 
