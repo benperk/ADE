@@ -46,7 +46,7 @@ CREATE TABLE [brainwaves].[FactREADING]
 ----------Notebook - Ch05Ex13TB
 %%spark
 val df = spark.read.sqlanalytics("SQLPool.brainwaves.FactREADING") 
-df.write.mode("overwrite").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet")
+df.write.mode("overwrite").option("header", "true").parquet("abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet")
 ------------------------------------------------------------------
 ----------AGGREGATE Script activity
 IF OBJECT_ID (N'brainwaves.SCENARIO_FREQUENCY', N'U') IS NOT NULL
