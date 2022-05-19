@@ -1,7 +1,6 @@
 ---DROP Tables Script activity
 IF OBJECT_ID (N'brainwaves.FactREADING', N'U') IS NOT NULL
  DROP TABLE [brainwaves].[FactREADING]
-GO
 IF OBJECT_ID (N'brainwaves.SCENARIO_FREQUENCY', N'U') IS NOT NULL
  DROP TABLE [brainwaves].[SCENARIO_FREQUENCY]
 
