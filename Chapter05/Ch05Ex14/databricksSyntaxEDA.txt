@@ -1,5 +1,14 @@
 import pandas as pd
-#df = spark.read.option("header", "true").parquet("wasbs://brainjammer@csharpguitar.blob.core.windows.net/NormalizedBrainwavesSE.parquet")
 df = spark.read.option("header", "true").parquet("wasbs://brainjammer@csharpguitar.blob.core.windows.net/transformedBrainwavesV1.parquet")
 pdf = df.select(df.SCENARIO, df.ELECTRODE, df.FREQUENCY, df.VALUE.cast('float')).toPandas()
+print(pdf.head())
+print(pdf.tail())
+
+pdf.shape
+
+pdf.info()
+
 pdf.describe()
+
+df = spark.read.option("header", "true").parquet("wasbs://brainjammer@csharpguitar.blob.core.windows.net/NormalizedBrainwavesSE.parquet")
+display(df)
