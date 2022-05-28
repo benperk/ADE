@@ -1,0 +1,66 @@
+df = spark.read.option("header","true") \
+  .parquet('abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/2022/05/19/14/transformedBrainwavesV1.parquet')
+df = df.select(df.SCENARIO, df.ELECTRODE, df.FREQUENCY, df.VALUE.cast('float'))
+
+from pyspark.sql.functions import col, lit, row_number
+from pyspark.sql.window import Window
+
+#-----------------------------------------------------
+dfClassicalMusic = df.filter((df['SCENARIO'] == 'ClassicalMusic') & 
+                   (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfClassicalMusic.count()) #20246
+w = Window().partitionBy(lit('VALUE')).orderBy(lit('VALUE'))
+dfClassicalMusic = dfClassicalMusic.select(col("VALUE").alias("CMAF3ALPHA")  \
+                   .cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfClassicalMusic.show()
+#-----------------------------------------------------
+dfFlipChart = df.filter((df['SCENARIO'] == 'FlipChart') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfFlipChart.count()) #23185
+dfFlipChart = dfFlipChart.select(col("VALUE").alias("FCAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfFlipChart.show()
+#-----------------------------------------------------
+dfMeditation = df.filter((df['SCENARIO'] == 'Meditation') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfMeditation.count()) #25390
+dfMeditation = dfMeditation.select(col("VALUE").alias("MEDAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfMeditation.show()
+#-----------------------------------------------------
+dfMetalMusic = df.filter((df['SCENARIO'] == 'MetalMusic') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfMetalMusic.count()) #20839
+dfMetalMusic = dfMetalMusic.select(col("VALUE").alias("METAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfMetalMusic.show()
+#-----------------------------------------------------
+dfPlayingGuitar = df.filter((df['SCENARIO'] == 'PlayingGuitar') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfPlayingGuitar.count()) #27438
+dfPlayingGuitar = dfPlayingGuitar.select(col("VALUE").alias("PGAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfPlayingGuitar.show()
+#-----------------------------------------------------
+dfTikTok = df.filter((df['SCENARIO'] == 'TikTok') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfTikTok.count()) #25440
+dfTikTok = dfTikTok.select(col("VALUE").alias("TTAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfTikTok.show()
+#-----------------------------------------------------
+#dfWorkMeeting = df.filter((df['SCENARIO'] == 'WorkMeeting') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfWorkMeeting.count()) #10118
+#dfWorkMeeting = dfWorkMeeting.select(col("VALUE").alias("WMAF3ALPHA").cast('float')).limit(5).withColumn("ID", row_number().over(w))
+#dfWorkMeeting.show()
+#-----------------------------------------------------
+dfWorkNoEmail = df.filter((df['SCENARIO'] == 'WorkNoEmail') & (df['ELECTRODE'] == 'AF3') & (df['FREQUENCY'] == 'ALPHA'))
+#print(dfWorkNoEmail.count()) #28765
+dfWorkNoEmail = dfWorkNoEmail.select(col("VALUE").alias("WNEAF3ALPHA").cast('float')).limit(20246).withColumn("ID", row_number().over(w))
+#dfWorkNoEmail.show()
+
+dffull = dfClassicalMusic \
+    .join(dfFlipChart, dfClassicalMusic.ID == dfFlipChart.ID) \
+    .join(dfMeditation, dfClassicalMusic.ID == dfMeditation.ID) \
+    .join(dfMetalMusic, dfClassicalMusic.ID == dfMetalMusic.ID) \
+    .join(dfPlayingGuitar, dfClassicalMusic.ID == dfPlayingGuitar.ID) \
+    .join(dfTikTok, dfClassicalMusic.ID == dfTikTok.ID) \
+    .join(dfWorkNoEmail, dfClassicalMusic.ID == dfWorkNoEmail.ID)
+#dffull.show()
+dfMerged = dffull \
+    .select(dffull.CMAF3ALPHA, dffull.FCAF3ALPHA, dffull.MEDAF3ALPHA, \
+    dffull.PGAF3ALPHA, dffull.TTAF3ALPHA, dffull.WNEAF3ALPHA)
+#dfMerged.show()
+#--------------------------------------
+dfMerged.write.mode("overwrite").saveAsTable("brainjammeraml")
+sqlContext.sql("SELECT * FROM brainjammeraml LIMIT 50").show()
