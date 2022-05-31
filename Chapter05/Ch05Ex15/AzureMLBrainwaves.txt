@@ -59,7 +59,7 @@ dffull = dfClassicalMusic \
 #dffull.show()
 dfMerged = dffull \
     .select(dffull.CMAF3ALPHA, dffull.FCAF3ALPHA, dffull.MEDAF3ALPHA, \
-    dffull.PGAF3ALPHA, dffull.TTAF3ALPHA, dffull.WNEAF3ALPHA)
+     dffull.METAF3ALPHA, dffull.PGAF3ALPHA, dffull.TTAF3ALPHA, dffull.WNEAF3ALPHA)
 #dfMerged.show()
 #--------------------------------------
 dfMerged.write.mode("overwrite").saveAsTable("brainjammeraml")
