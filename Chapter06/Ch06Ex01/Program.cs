@@ -39,7 +39,7 @@ namespace brainjammer_batch
                     accountKey = args[4];
 
                     outputLocation = outputLocation + 
-                        $"/{DateTime.Now.Year}/{DateTime.Now.Month.ToString("d2")}/{DateTime.Now.Day}/{DateTime.Now.ToString("HH")}";
+                        $"/{DateTime.Now.Year}/{DateTime.Now.Month.ToString("d2")}/{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.ToString("HH")}";
 
                     WriteLine("Arguments provided from command line...");
                     WriteLine($"storageAccountName: {storageAccountName}");
