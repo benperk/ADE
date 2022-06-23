@@ -1,0 +1,8 @@
+@concat('brainjammer-batch.exe ', 
+pipeline().parameters.storageAccountName, ' ', 
+pipeline().parameters.storageAccountContainerName, ' ',
+pipeline().parameters.inputLocation, ' ',
+pipeline().parameters.outputLocation, ' ',
+pipeline().parameters.accountKey)
+
+-------------------------------------------------------
