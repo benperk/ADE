@@ -9,3 +9,6 @@ pipeline().parameters.accountKey)
 @concat(pipeline().parameters.storageAccountContainerName, '@', pipeline().parameters.storageAccountName)
 
 -------------------------------------------------------
+@variables('containerAccount')
+
+--------------------------------------------------------
