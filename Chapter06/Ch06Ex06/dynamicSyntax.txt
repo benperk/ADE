@@ -7,8 +7,10 @@ pipeline().parameters.accountKey)
 
 -------------------------------------------------------
 @concat(pipeline().parameters.storageAccountContainerName, '@', pipeline().parameters.storageAccountName)
+@concat(utcnow('yyyy'), '/', utcnow('MM'), '/', utcnow('dd'), '/', utcnow('HH'))
 
 -------------------------------------------------------
 @variables('containerAccount')
+@concat('EMEA/brainjammer/in/', variables('datetimePath'))
 
 --------------------------------------------------------
