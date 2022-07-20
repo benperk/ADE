@@ -1,0 +1,10 @@
+{
+   "Id":"1",
+   "inputLocation":"SessionJson/Meditation/POW",
+   "storageAccountContainerName":"brainjammer"
+}
+{
+   "Id":"2",
+   "inputLocation":"SessionJson/PlayingGuitar/POW",
+   "storageAccountContainerName":"brainjammer"
+}
