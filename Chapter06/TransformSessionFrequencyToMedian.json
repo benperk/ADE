@@ -1,0 +1,258 @@
+{
+    "name": "TransformSessionFrequencyToMedian",
+    "properties": {
+        "activities": [
+            {
+                "name": "Calculate Frequency Median",
+                "type": "Custom",
+                "dependsOn": [
+                    {
+                        "activity": "Validate Brainwaves",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    },
+                    {
+                        "activity": "Lookup Brainwaves",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "command": {
+                        "value": "@concat('brainjammer-batch.exe ', \npipeline().parameters.storageAccountName, ' ', \npipeline().parameters.storageAccountContainerName, ' ',\npipeline().parameters.inputLocation, ' ',\npipeline().parameters.outputLocation, ' ',\npipeline().parameters.accountKey)",
+                        "type": "Expression"
+                    },
+                    "resourceLinkedService": {
+                        "referenceName": "AzureBlobStorageSouthCentralUS",
+                        "type": "LinkedServiceReference"
+                    },
+                    "folderPath": "brainjammer/BatchJobs/Exercise6.1",
+                    "referenceObjects": {
+                        "linkedServices": [],
+                        "datasets": []
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "BrainjammerAzureBatch",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "To Avro",
+                "type": "SparkJob",
+                "dependsOn": [
+                    {
+                        "activity": "Set containerAccount",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    },
+                    {
+                        "activity": "Set datetimePath",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "sparkJob": {
+                        "referenceName": "ToAvro",
+                        "type": "SparkJobDefinitionReference"
+                    },
+                    "file": "abfss://brainjammer@csharpguitar.dfs.core.windows.net/BatchJobs/ToAvro/ToAvro.py",
+                    "args": [
+                        "ClassicalMusic",
+                        "@concat('EMEA/brainjammer/in/', variables('datetimePath'))",
+                        "@variables('containerAccount')"
+                    ],
+                    "targetBigDataPool": {
+                        "referenceName": "SparkPoolBatch",
+                        "type": "BigDataPoolReference"
+                    },
+                    "executorSize": "Small",
+                    "conf": {
+                        "spark.dynamicAllocation.enabled": false,
+                        "spark.dynamicAllocation.minExecutors": 1,
+                        "spark.dynamicAllocation.maxExecutors": 1
+                    },
+                    "driverSize": "Small",
+                    "numExecutors": 1
+                }
+            },
+            {
+                "name": "Identify Brainwave Scenario",
+                "type": "DatabricksNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "To Avro",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/Users/benperk.../IdentifyBrainwaveScenario"
+                },
+                "linkedServiceName": {
+                    "referenceName": "BrainjammerAzureDatabricks",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "Set containerAccount",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "Calculate Frequency Median",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "containerAccount",
+                    "value": {
+                        "value": "@concat(pipeline().parameters.storageAccountContainerName, '@', pipeline().parameters.storageAccountName)",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "Set datetimePath",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "Calculate Frequency Median",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "datetimePath",
+                    "value": {
+                        "value": "@concat(utcnow('yyyy'), '/', utcnow('MM'), '/', utcnow('dd'), '/', utcnow('HH'))",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "Validate Brainwaves",
+                "type": "Validation",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "dataset": {
+                        "referenceName": "BrainwavesJson",
+                        "type": "DatasetReference"
+                    },
+                    "timeout": "0.00:03:00",
+                    "sleep": 10,
+                    "childItems": false
+                }
+            },
+            {
+                "name": "Lookup Brainwaves",
+                "type": "Lookup",
+                "dependsOn": [
+                    {
+                        "activity": "Validate Brainwaves",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "JsonSource",
+                        "storeSettings": {
+                            "type": "AzureBlobFSReadSettings",
+                            "recursive": true,
+                            "enablePartitionDiscovery": false
+                        },
+                        "formatSettings": {
+                            "type": "JsonReadSettings"
+                        }
+                    },
+                    "dataset": {
+                        "referenceName": "AlternativeBrainwaveLocationsJson",
+                        "type": "DatasetReference"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "storageAccountName": {
+                "type": "string",
+                "defaultValue": "csharpguitar"
+            },
+            "storageAccountContainerName": {
+                "type": "string",
+                "defaultValue": "brainjammer"
+            },
+            "inputLocation": {
+                "type": "string",
+                "defaultValue": "SessionJson/ClassicalMusic/POW"
+            },
+            "outputLocation": {
+                "type": "string",
+                "defaultValue": "EMEA/brainjammer/in"
+            },
+            "accountKey": {
+                "type": "string",
+                "defaultValue": "D4yx3......+ASt2Sw1AA=="
+            },
+            "FileName": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "containerAccount": {
+                "type": "String"
+            },
+            "datetimePath": {
+                "type": "String"
+            }
+        },
+        "annotations": [
+            "Transform",
+            "Batch"
+        ]
+    }
+}
