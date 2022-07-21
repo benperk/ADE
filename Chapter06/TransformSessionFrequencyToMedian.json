@@ -117,7 +117,7 @@
                 },
                 "userProperties": [],
                 "typeProperties": {
-                    "notebookPath": "/Users/benperk.../IdentifyBrainwaveScenario"
+                    "notebookPath": "/Users/benperk/IdentifyBrainwaveScenario"
                 },
                 "linkedServiceName": {
                     "referenceName": "BrainjammerAzureDatabricks",
@@ -215,6 +215,29 @@
                         "type": "DatasetReference"
                     }
                 }
+            },
+            {
+                "name": "Batch Load Fail",
+                "type": "Fail",
+                "dependsOn": [
+                    {
+                        "activity": "Calculate Frequency Median",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "message": {
+                        "value": "@activity('Calculate Frequency Median').output.exitcode",
+                        "type": "Expression"
+                    },
+                    "errorCode": {
+                        "value": "@activity('Calculate Frequency Median').output.outputs",
+                        "type": "Expression"
+                    }
+                }
             }
         ],
         "parameters": {
@@ -236,7 +259,7 @@
             },
             "accountKey": {
                 "type": "string",
-                "defaultValue": "D4yx3......+ASt2Sw1AA=="
+                "defaultValue": "D4yx3uLjpP......+ASt2Sw1AA=="
             },
             "FileName": {
                 "type": "string"
