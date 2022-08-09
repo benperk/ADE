@@ -1,0 +1,1 @@
+EMEA/brainjammer/in/{date}/{time}
