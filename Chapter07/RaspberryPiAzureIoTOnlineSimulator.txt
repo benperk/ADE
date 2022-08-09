@@ -1,0 +1,1 @@
+https://docs.microsoft.com/en-us/azure/stream-analytics/quick-create-visual-studio-code#run-the-iot-simulator
