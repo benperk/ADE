@@ -1,0 +1,22 @@
+WITH BrainwaveResults AS (
+SELECT
+    System.TimeStamp() AS IngestionTime,
+    PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.ALPHA) AS medianAPLHA,
+    PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.BETA_H) AS medianBETA_H,
+    PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.BETA_L) AS medianBETA_L,
+    PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.GAMMA) AS medianGAMMA,
+    PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.THETA) AS medianTHETA
+FROM brainwaves
+GROUP BY IngestionTime, TumblingWindow(second, 5))
+
+SELECT medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA,
+CASE
+    WHEN medianAPLHA > 4.3924 AND medianAPLHA <= 5.0287 THEN 'Meditation'
+    WHEN medianBETA_H > 1.2994 AND medianBETA_H <= 1.38 THEN 'Meditation'
+    WHEN medianBETA_L > 2.0487 AND medianBETA_L <= 2.1775 THEN 'Meditation'
+    WHEN medianGAMMA > 0.8675 AND medianGAMMA <= 0.9364 THEN 'Meditation'
+    WHEN medianTHETA > 2.344 AND medianTHETA <= 5.1052 THEN 'Meditation'
+    ELSE 'Unknown'
+END Scenario
+INTO ADLS
+FROM BrainwaveResults
