@@ -1,0 +1,9 @@
+CREATE TABLE [brainwaves].[BrainwaveMedians] (
+  [BRAINWAVE_ID]  INT NOT NULL IDENTITY(1,1) PRIMARY KEY CLUSTERED,
+  [medianAPLHA]		DECIMAL(20,3)  NOT NULL,
+  [medianBETA_H]		DECIMAL(20,3)  NOT NULL,
+  [medianBETA_L]		DECIMAL(20,3)  NOT NULL,
+  [medianGAMMA]		DECIMAL(20,3)  NOT NULL,
+  [medianTHETA]		DECIMAL(20,3)  NOT NULL,
+  [Scenario]		NVARCHAR (100) NOT NULL
+)
