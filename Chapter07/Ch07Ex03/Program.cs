@@ -64,7 +64,7 @@ namespace brainjammer
                     using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
                     eventBatch.TryAdd(eventData);
                     await producerClient.SendAsync(eventBatch);
-                    WriteLine($"Brainwave reading #{brainwaves.Session.POWReading.Count} was sent sucessfully.");
+                    WriteLine($"Brainwave reading #{brainwaves.Session.POWReading[counter].Counter} was sent sucessfully.");
                     WriteLine();
                     System.Threading.Thread.Sleep(200); //ingest 5 reading per second
                     counter++;
