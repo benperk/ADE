@@ -17,6 +17,6 @@ CASE
     WHEN medianGAMMA > 0.8675 AND medianGAMMA <= 0.9364 THEN 'Meditation'
     WHEN medianTHETA > 2.344 AND medianTHETA <= 5.1052 THEN 'Meditation'
     ELSE 'Unknown'
-END Scenario
+END AS Scenario
 INTO powerBI
 FROM BrainwaveResults
