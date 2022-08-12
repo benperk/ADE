@@ -1,0 +1,4 @@
+SELECT frequency.FREQUENCY, brainwaves.VALUE, brainwaves.READING_DATETIME 
+INTO ADLS 
+FROM brainwaves
+JOIN frequency ON brainwaves.FREQUENCY_ID = frequency.FREQUENCY_ID
