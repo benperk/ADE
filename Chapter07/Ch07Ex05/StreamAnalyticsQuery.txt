@@ -7,9 +7,9 @@ SELECT
     PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.GAMMA) AS medianGAMMA,
     PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.THETA) AS medianTHETA
 FROM brainwaves
-GROUP BY IngestionTime, TumblingWindow(second, 5))
-
-SELECT medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA, 
+GROUP BY IngestionTime, TumblingWindow(second, 5)),
+ScenarioDetection AS (
+SELECT medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA,
 CASE
     WHEN medianAPLHA > 4.3924 AND medianAPLHA <= 5.0287 THEN 'Meditation'
     WHEN medianBETA_H > 1.2994 AND medianBETA_H <= 1.38 THEN 'Meditation'
@@ -18,5 +18,6 @@ CASE
     WHEN medianTHETA > 2.344 AND medianTHETA <= 5.1052 THEN 'Meditation'
     ELSE 'Unknown'
 END AS Scenario
-INTO powerBI
-FROM BrainwaveResults
+FROM BrainwaveResults)
+
+SELECT Scenario, medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA INTO powerBI FROM ScenarioDetection
