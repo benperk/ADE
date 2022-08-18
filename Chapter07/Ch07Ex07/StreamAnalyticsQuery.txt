@@ -13,7 +13,7 @@ GROUP BY WindowId, IngestionTime,
     Windows(
         Window('10s Tumble', TumblingWindow(second, 10)),
         Window('10s Hop', HoppingWindow(second, 10, 5)),
-        Window('30s  Session', SessionWindow(second, 30, 60)),
+        Window('30s Session', SessionWindow(second, 30, 60)),
         Window('30s Sliding', SlidingWindow(second, 30)))
 )
 
