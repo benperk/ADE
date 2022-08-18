@@ -1,3 +1,4 @@
-SELECT medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA
+SELECT IngestionTime, medianAPLHA, medianBETA_H, medianBETA_L, medianGAMMA, medianTHETA
 FROM [brainwaves].[BrainwaveWindowMedians]
-WHERE WindowId = '30 seconds'
+WHERE WindowId = '10s Hop'
+ORDER BY IngestionTime
