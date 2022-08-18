@@ -10,10 +10,11 @@ SELECT
     PERCENTILE_CONT(0.5) OVER (ORDER BY brainwaves.THETA) AS medianTHETA
 FROM brainwaves
 GROUP BY WindowId, IngestionTime, 
-         Windows(
-     		Window('5 seconds', TumblingWindow(second, 5)),
-     		Window('10 seconds', HoppingWindow(second, 10, 5)),
-     		Window('20 seconds', HoppingWindow(second, 20, 5)),
-     		Window('30 seconds', HoppingWindow(second, 30, 5)))
+    Windows(
+        Window('10s Tumble', TumblingWindow(second, 10)),
+        Window('10s Hop', HoppingWindow(second, 10, 5)),
+        Window('30s  Session', SessionWindow(second, 30, 60)),
+        Window('30s Sliding', SlidingWindow(second, 30)))
 )
+
 SELECT BrainwaveWindowResults.* INTO synapse FROM BrainwaveWindowResults
