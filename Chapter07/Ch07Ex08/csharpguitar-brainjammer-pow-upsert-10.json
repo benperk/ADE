@@ -1,0 +1,497 @@
+{
+  "Session": {
+    "Scenario": "Meditation",
+    "POWReading": [
+      {
+        "ReadingDate": "2021-07-29T12:41:00",
+        "Counter": 0,
+        "AF3": [
+          {
+            "THETA": 114.687,
+            "ALPHA": 8.524,
+            "BETA_L": 2.134,
+            "BETA_H": 1.129,
+            "GAMMA": 0.364
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 1.954,
+            "ALPHA": 2.047,
+            "BETA_L": 1.05,
+            "BETA_H": 0.575,
+            "GAMMA": 0.354
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 6.376,
+            "ALPHA": 3.76,
+            "BETA_L": 1.906,
+            "BETA_H": 0.937,
+            "GAMMA": 0.424
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 9.965,
+            "ALPHA": 3.188,
+            "BETA_L": 10.878,
+            "BETA_H": 1.368,
+            "GAMMA": 0.266
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 72.551,
+            "ALPHA": 7.514,
+            "BETA_L": 2.978,
+            "BETA_H": 0.974,
+            "GAMMA": 0.364
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:01",
+        "Counter": 1,
+        "AF3": [
+          {
+            "THETA": 79.648,
+            "ALPHA": 9.775,
+            "BETA_L": 3.146,
+            "BETA_H": 1.236,
+            "GAMMA": 0.4
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 1.936,
+            "ALPHA": 3.47,
+            "BETA_L": 1.629,
+            "BETA_H": 0.885,
+            "GAMMA": 0.376
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 5.331,
+            "ALPHA": 5.877,
+            "BETA_L": 2.944,
+            "BETA_H": 1.305,
+            "GAMMA": 0.485
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 7.719,
+            "ALPHA": 5.431,
+            "BETA_L": 11.746,
+            "BETA_H": 2.049,
+            "GAMMA": 0.34
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 45.572,
+            "ALPHA": 8.373,
+            "BETA_L": 3.636,
+            "BETA_H": 1.148,
+            "GAMMA": 0.414
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:02",
+        "Counter": 2,
+        "AF3": [
+          {
+            "THETA": 51.234,
+            "ALPHA": 12.427,
+            "BETA_L": 4.98,
+            "BETA_H": 1.391,
+            "GAMMA": 0.474
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 2.177,
+            "ALPHA": 5.621,
+            "BETA_L": 2.57,
+            "BETA_H": 1.309,
+            "GAMMA": 0.409
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.382,
+            "ALPHA": 9.079,
+            "BETA_L": 4.644,
+            "BETA_H": 1.852,
+            "GAMMA": 0.582
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 6.678,
+            "ALPHA": 9.22,
+            "BETA_L": 11.946,
+            "BETA_H": 2.956,
+            "GAMMA": 0.476
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 23.724,
+            "ALPHA": 10.865,
+            "BETA_L": 4.775,
+            "BETA_H": 1.399,
+            "GAMMA": 0.519
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:03",
+        "Counter": 3,
+        "AF3": [
+          {
+            "THETA": 35.404,
+            "ALPHA": 15.697,
+            "BETA_L": 7.257,
+            "BETA_H": 1.601,
+            "GAMMA": 0.574
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 2.866,
+            "ALPHA": 8.084,
+            "BETA_L": 3.711,
+            "BETA_H": 1.764,
+            "GAMMA": 0.441
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 3.96,
+            "ALPHA": 12.732,
+            "BETA_L": 6.635,
+            "BETA_H": 2.482,
+            "GAMMA": 0.686
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 7.206,
+            "ALPHA": 13.68,
+            "BETA_L": 11.619,
+            "BETA_H": 3.893,
+            "GAMMA": 0.634
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 11.073,
+            "ALPHA": 14.351,
+            "BETA_L": 6.101,
+            "BETA_H": 1.686,
+            "GAMMA": 0.65
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:04",
+        "Counter": 4,
+        "AF3": [
+          {
+            "THETA": 30.743,
+            "ALPHA": 18.221,
+            "BETA_L": 9.279,
+            "BETA_H": 1.853,
+            "GAMMA": 0.686
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 3.973,
+            "ALPHA": 10.21,
+            "BETA_L": 4.777,
+            "BETA_H": 2.139,
+            "GAMMA": 0.466
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.097,
+            "ALPHA": 15.777,
+            "BETA_L": 8.33,
+            "BETA_H": 3.033,
+            "GAMMA": 0.77
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 8.664,
+            "ALPHA": 17.422,
+            "BETA_L": 10.905,
+            "BETA_H": 4.603,
+            "GAMMA": 0.771
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 6.78,
+            "ALPHA": 17.452,
+            "BETA_L": 7.142,
+            "BETA_H": 1.951,
+            "GAMMA": 0.78
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:05",
+        "Counter": 5,
+        "AF3": [
+          {
+            "THETA": 31.407,
+            "ALPHA": 18.758,
+            "BETA_L": 10.38,
+            "BETA_H": 2.08,
+            "GAMMA": 0.782
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 5.244,
+            "ALPHA": 11.369,
+            "BETA_L": 5.481,
+            "BETA_H": 2.33,
+            "GAMMA": 0.478
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.503,
+            "ALPHA": 17.185,
+            "BETA_L": 9.2,
+            "BETA_H": 3.335,
+            "GAMMA": 0.807
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 9.985,
+            "ALPHA": 19.193,
+            "BETA_L": 9.906,
+            "BETA_H": 4.855,
+            "GAMMA": 0.848
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 6.798,
+            "ALPHA": 18.743,
+            "BETA_L": 7.501,
+            "BETA_H": 2.121,
+            "GAMMA": 0.872
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:06",
+        "Counter": 6,
+        "AF3": [
+          {
+            "THETA": 31.474,
+            "ALPHA": 16.822,
+            "BETA_L": 10.178,
+            "BETA_H": 2.196,
+            "GAMMA": 0.831
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 6.27,
+            "ALPHA": 11.197,
+            "BETA_L": 5.614,
+            "BETA_H": 2.28,
+            "GAMMA": 0.471
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.781,
+            "ALPHA": 16.418,
+            "BETA_L": 8.986,
+            "BETA_H": 3.286,
+            "GAMMA": 0.787
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 10.297,
+            "ALPHA": 18.376,
+            "BETA_L": 8.629,
+            "BETA_H": 4.555,
+            "GAMMA": 0.844
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 7.341,
+            "ALPHA": 17.505,
+            "BETA_L": 7.008,
+            "BETA_H": 2.137,
+            "GAMMA": 0.901
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:07",
+        "Counter": 7,
+        "AF3": [
+          {
+            "THETA": 28.301,
+            "ALPHA": 13.022,
+            "BETA_L": 8.784,
+            "BETA_H": 2.14,
+            "GAMMA": 0.819
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 6.675,
+            "ALPHA": 9.768,
+            "BETA_L": 5.141,
+            "BETA_H": 2.015,
+            "GAMMA": 0.441
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.669,
+            "ALPHA": 13.7,
+            "BETA_L": 7.787,
+            "BETA_H": 2.907,
+            "GAMMA": 0.717
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 9.404,
+            "ALPHA": 15.309,
+            "BETA_L": 7.08,
+            "BETA_H": 3.799,
+            "GAMMA": 0.768
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 7.22,
+            "ALPHA": 14.202,
+            "BETA_L": 5.841,
+            "BETA_H": 1.987,
+            "GAMMA": 0.862
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:08",
+        "Counter": 8,
+        "AF3": [
+          {
+            "THETA": 22.236,
+            "ALPHA": 8.708,
+            "BETA_L": 6.704,
+            "BETA_H": 1.926,
+            "GAMMA": 0.753
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 6.263,
+            "ALPHA": 7.537,
+            "BETA_L": 4.203,
+            "BETA_H": 1.634,
+            "GAMMA": 0.393
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 4.191,
+            "ALPHA": 9.89,
+            "BETA_L": 5.982,
+            "BETA_H": 2.341,
+            "GAMMA": 0.619
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 7.828,
+            "ALPHA": 11.096,
+            "BETA_L": 5.368,
+            "BETA_H": 2.834,
+            "GAMMA": 0.654
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 6.714,
+            "ALPHA": 9.973,
+            "BETA_L": 4.382,
+            "BETA_H": 1.725,
+            "GAMMA": 0.773
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2021-07-29T12:41:09",
+        "Counter": 9,
+        "AF3": [
+          {
+            "THETA": 15.585,
+            "ALPHA": 5.311,
+            "BETA_L": 4.643,
+            "BETA_H": 1.645,
+            "GAMMA": 0.657
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 5.174,
+            "ALPHA": 5.157,
+            "BETA_L": 3.065,
+            "BETA_H": 1.256,
+            "GAMMA": 0.334
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 3.578,
+            "ALPHA": 6.2,
+            "BETA_L": 4.106,
+            "BETA_H": 1.792,
+            "GAMMA": 0.517
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 6.262,
+            "ALPHA": 7.161,
+            "BETA_L": 3.734,
+            "BETA_H": 1.943,
+            "GAMMA": 0.537
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 6.055,
+            "ALPHA": 6.239,
+            "BETA_L": 3.048,
+            "BETA_H": 1.453,
+            "GAMMA": 0.663
+          }
+        ]
+      }
+    ]
+  }
+}
