@@ -1,4 +1,4 @@
-SELECT brainwaves.pk, brainwaves.ReadingDate, brainwaves.ALPHA, 
-       brainwaves.BETA_L, brainwaves.GAMMA, brainwaves.THETA
+SELECT brainwaves.pk, brainwaves.ReadingDate, brainwaves.ALPHA, brainwaves.BETA_L, 
+       brainwaves.BETA_H, brainwaves.GAMMA, brainwaves.THETA
 INTO cosmosDB
 FROM brainwaves
