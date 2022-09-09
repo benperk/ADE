@@ -1,0 +1,26 @@
+WITH BrainwaveResults AS (
+SELECT
+    TRY_CAST(Scenario AS nvarchar(max)) as pk,
+    TRY_CAST(Scenario AS nvarchar(max)) as Scenario,
+    ReadingDate,
+    TRY_CAST(ALPHA AS float) as APLHA,
+    TRY_CAST(BETA_H AS float) as BETA_H,
+    TRY_CAST(BETA_L AS float) as BETA_L,
+    TRY_CAST(GAMMA AS float) as GAMMA,
+    TRY_CAST(THETA AS float) as THETA,
+    TRY_CAST(MODE AS nvarchar(max)) as MODE
+FROM brainwaves),
+legacyBrainwaves AS (
+SELECT
+    Scenario, 
+    TRY_CAST(ReadingDate AS datetime) as ReadingDate, 
+    APLHA, BETA_H, BETA_L, GAMMA, THETA
+FROM BrainwaveResults
+WHERE MODE IS NULL),
+currentBrainwaves AS (
+SELECT
+    pk, ReadingDate, APLHA, BETA_H, BETA_L, GAMMA, THETA, MODE
+FROM BrainwaveResults
+WHERE MODE IS NOT NULL)
+SELECT Scenario, ReadingDate, APLHA, BETA_H, BETA_L, GAMMA, THETA INTO ADLS FROM legacyBrainwaves
+SELECT pk, ReadingDate, APLHA, BETA_H, BETA_L, GAMMA, THETA, MODE INTO cosmosDB FROM currentBrainwaves
