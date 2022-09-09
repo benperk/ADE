@@ -1,0 +1,106 @@
+{
+  "Session": {
+    "Scenario": "Meditation",
+    "MODE":  "POW",
+    "POWReading": [
+      {
+        "ReadingDate": "2022-09-09T12:44:03",
+        "Counter": 3,
+        "AF3": [
+          {
+            "THETA": 14.687,
+            "ALPHA": 8.524,
+            "BETA_L": 2.134,
+            "BETA_H": 1.129,
+            "GAMMA": 0.364
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 1.854,
+            "ALPHA": 2.047,
+            "BETA_L": 1.05,
+            "BETA_H": 0.575,
+            "GAMMA": 0.354
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 3.376,
+            "ALPHA": 3.76,
+            "BETA_L": 1.906,
+            "BETA_H": 0.937,
+            "GAMMA": 0.424
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 4.965,
+            "ALPHA": 3.188,
+            "BETA_L": 10.878,
+            "BETA_H": 1.368,
+            "GAMMA": 0.266
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 2.551,
+            "ALPHA": 7.514,
+            "BETA_L": 2.978,
+            "BETA_H": 0.974,
+            "GAMMA": 0.364
+          }
+        ]
+      },
+      {
+        "ReadingDate": "2022-09-09T12:44:04",
+        "Counter": 4,
+        "AF3": [
+          {
+            "THETA": 9.648,
+            "ALPHA": 9.775,
+            "BETA_L": 3.146,
+            "BETA_H": 1.236,
+            "GAMMA": 0.4
+          }
+        ],
+        "T7": [
+          {
+            "THETA": 1.036,
+            "ALPHA": 3.47,
+            "BETA_L": 1.629,
+            "BETA_H": 0.885,
+            "GAMMA": 0.376
+          }
+        ],
+        "Pz": [
+          {
+            "THETA": 2.331,
+            "ALPHA": 5.877,
+            "BETA_L": 2.944,
+            "BETA_H": 1.305,
+            "GAMMA": 0.485
+          }
+        ],
+        "T8": [
+          {
+            "THETA": 4.719,
+            "ALPHA": 5.431,
+            "BETA_L": 11.746,
+            "BETA_H": 2.049,
+            "GAMMA": 0.34
+          }
+        ],
+        "AF4": [
+          {
+            "THETA": 5.572,
+            "ALPHA": 8.373,
+            "BETA_L": 3.636,
+            "BETA_H": 1.148,
+            "GAMMA": 0.414
+          }
+        ]
+      }
+    ]
+  }
+}
