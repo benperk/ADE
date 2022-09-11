@@ -1,4 +1,5 @@
 CREATE SCHEMA dimensional
+GO
 CREATE TABLE [dimensional].[MODE] (
   [MODE_ID] 	INT			NOT NULL,
   [MODE]		NVARCHAR (50)	NOT NULL
