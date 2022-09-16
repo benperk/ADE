@@ -1,0 +1,3 @@
+SELECT Scenario, ReadingDate, ALPHA, BETA_H, BETA_L, GAMMA, THETA
+INTO ADLS
+FROM archive
