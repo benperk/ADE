@@ -1,0 +1,7 @@
+<sensitivity_attributes max_rank="20" max_rank_desc="Medium">
+	<sensitivity_attribute label="Confidential - GDPR" label_id="bf91e08c-f4f0-478a-b016..." information_type="Name" information_type_id="57845286-7598-22f5-9659..." rank="20" rank_desc="Medium" />
+	<sensitivity_attribute label="Confidential - GDPR" label_id="bf91e08c-f4f0-478a-b016..." information_type="Date Of Birth" information_type_id="3de7cc52-710d..." rank="20" rank_desc="Medium" />
+	<sensitivity_attribute label="Confidential" label_id="05e6eaa1-075a-4fb4-a732..." information_type="Credentials" information_type_id="c64aba7b-3a3e-95b6-535d..." rank="20" rank_desc="Medium" />
+	<sensitivity_attribute label="Confidential" label_id="05e6eaa1-075a-4fb4-a732..." information_type="Contact Info" information_type_id="5c503e21-22c6-81fa-620b..." rank="20" rank_desc="Medium" />
+	<sensitivity_attribute label="General" label_id="6d21db50-501c-4250-8db3..." information_type="Contact Info" information_type_id="5c503e21-22c6-81fa-620b..." rank="10" rank_desc="Low" />
+</sensitivity_attributes>
