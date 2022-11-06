@@ -1,0 +1,658 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": "Workspace name",
+      "defaultValue": "csharpguitar"
+    },
+    "csharpguitar-synapse-WorkspaceDefaultStorage": {
+      "type": "string"
+    },
+    "csharpguitar-synapse-WorkspaceDefaultSqlServer": {
+      "type": "string"
+    },
+    "BrainjammerAzureFunction": {
+      "type": "string"
+    },
+    "BrainjammerAzureSQL": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
+  },
+  "resources": [
+    {
+      "name": "[concat(parameters('workspaceName'), '/MonitoringLogger')]",
+      "type": "Microsoft.Synapse/workspaces/pipelines",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "activities": [
+          {
+            "name": "GetAKVMonitorLog",
+            "type": "WebActivity",
+            "dependsOn": [
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "url": "https://brainjammer.vault.azure.net/secrets/MonitoringLogs/9b89473ba2f945138e041aa49298511a?api-version=7.0",
+              "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+              },
+              "method": "GET",
+              "headers": {
+              },
+              "authentication": {
+                "type": "MSI",
+                "resource": "https://vault.azure.net"
+              }
+            }
+          },
+          {
+            "name": "MonitorLogKey",
+            "type": "SetVariable",
+            "dependsOn": [
+              {
+                "activity": "GetAKVMonitorLog",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "variableName": "MonitorLogValue",
+              "value": {
+                "value": "@activity('GetAKVMonitorLog').output.value",
+                "type": "Expression"
+              }
+            }
+          },
+          {
+            "name": "AzureSQL",
+            "type": "ExecuteDataFlow",
+            "dependsOn": [
+              {
+                "activity": "MonitorLogKey",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "dataflow": {
+                "referenceName": "Ch04Ex12",
+                "type": "DataFlowReference",
+                "parameters": {
+                },
+                "datasetParameters": {
+                  "BrainwavesReading": {
+                  },
+                  "brainjammerTmpReading": {
+                  }
+                }
+              },
+              "staging": {
+                "linkedService": {
+                  "referenceName": "[parameters('csharpguitar-WorkspaceDefaultStorage')]",
+                  "type": "LinkedServiceReference"
+                },
+                "folderPath": "brainjammer/staging"
+              },
+              "compute": {
+                "coreCount": 8,
+                "computeType": "General"
+              },
+              "traceLevel": "Fine"
+            }
+          },
+          {
+            "name": "PopulateFactReading",
+            "type": "SqlPoolStoredProcedure",
+            "dependsOn": [
+              {
+                "activity": "Wait 1 minute",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "sqlPool": {
+              "referenceName": "SQLPool",
+              "type": "SqlPoolReference"
+            },
+            "typeProperties": {
+              "storedProcedureName": "[[brainwaves].[uspCreateAndPopulateFactReading]"
+            }
+          },
+          {
+            "name": "Wait 1 minute",
+            "type": "Wait",
+            "dependsOn": [
+              {
+                "activity": "AzureSQL",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "waitTimeInSeconds": 60
+            }
+          },
+          {
+            "name": "Wait 45 Seconds",
+            "type": "Wait",
+            "dependsOn": [
+              {
+                "activity": "PopulateFactReading",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "waitTimeInSeconds": 45
+            }
+          },
+          {
+            "name": "Write to ADLS",
+            "type": "SynapseNotebook",
+            "dependsOn": [
+              {
+                "activity": "Wait 45 Seconds",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "notebook": {
+                "referenceName": "Ch09ExM",
+                "type": "NotebookReference"
+              },
+              "snapshot": true,
+              "sparkPool": {
+                "referenceName": "SparkPool",
+                "type": "BigDataPoolReference"
+              },
+              "executorSize": "Small",
+              "conf": {
+                "spark.dynamicAllocation.enabled": null,
+                "spark.dynamicAllocation.minExecutors": null,
+                "spark.dynamicAllocation.maxExecutors": null
+              },
+              "driverSize": "Small",
+              "numExecutors": null
+            }
+          },
+          {
+            "name": "DROP FactREADING",
+            "type": "Script",
+            "dependsOn": [
+              {
+                "activity": "Write to ADLS",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "linkedServiceName": {
+              "referenceName": "[parameters('csharpguitar-WorkspaceDefaultSqlServer')]",
+              "type": "LinkedServiceReference",
+              "parameters": {
+                "DBName": "SQLPool"
+              }
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "DROP TABLE [brainwaves].[FactREADING]"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          },
+          {
+            "name": "Azure Function",
+            "type": "AzureFunctionActivity",
+            "dependsOn": [
+              {
+                "activity": "Wait 45 Seconds",
+                "dependencyConditions": [
+                  "Failed"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [
+            ],
+            "typeProperties": {
+              "functionName": "brainjammer",
+              "method": "GET",
+              "headers": {
+              }
+            },
+            "linkedServiceName": {
+              "referenceName": "[parameters('BrainjammerAzureFunction')]",
+              "type": "LinkedServiceReference"
+            }
+          }
+        ],
+        "policy": {
+          "elapsedTimeMetric": {
+          },
+          "cancelAfter": {
+          }
+        },
+        "variables": {
+          "MonitorLogValue": {
+            "type": "String"
+          }
+        },
+        "annotations": [
+        ]
+      },
+      "dependsOn": [
+        "[concat(variables('workspaceId'), '/dataflows/Ch04Ex12')]",
+        "[concat(variables('workspaceId'), '/sqlPools/SQLPool')]",
+        "[concat(variables('workspaceId'), '/notebooks/Ch09ExM')]",
+        "[concat(variables('workspaceId'), '/bigDataPools/SparkPool')]"
+      ]
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/Ch04Ex12')]",
+      "type": "Microsoft.Synapse/workspaces/dataflows",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "type": "MappingDataFlow",
+        "typeProperties": {
+          "sources": [
+            {
+              "dataset": {
+                "referenceName": "brainjammerAzureSqlReadingTable",
+                "type": "DatasetReference"
+              },
+              "name": "BrainwavesReading"
+            }
+          ],
+          "sinks": [
+            {
+              "dataset": {
+                "referenceName": "brainjammerSynapseTmpReading",
+                "type": "DatasetReference"
+              },
+              "name": "brainjammerTmpReading"
+            }
+          ],
+          "transformations": [
+            {
+              "name": "CheckForNulls"
+            }
+          ],
+          "scriptLines": [
+            "source(output(",
+            "          READING_ID as integer,",
+            "          SESSION_ID as integer,",
+            "          ELECTRODE_ID as integer,",
+            "          FREQUENCY_ID as integer,",
+            "          READING_DATETIME as timestamp,",
+            "          COUNT as integer,",
+            "          VALUE as decimal(7,3)",
+            "     ),",
+            "     allowSchemaDrift: true,",
+            "     validateSchema: false,",
+            "     isolationLevel: 'READ_UNCOMMITTED',",
+            "     format: 'table') ~> BrainwavesReading",
+            "BrainwavesReading split(!isNull(READING_ID) && !isNull(SESSION_ID) && !isNull(ELECTRODE_ID) && !isNull(FREQUENCY_ID) && !isNull(READING_DATETIME) && !isNull(COUNT) && !isNull(VALUE),",
+            "     disjoint: false) ~> CheckForNulls@(NoNulls, HasNulls)",
+            "CheckForNulls@NoNulls sink(allowSchemaDrift: true,",
+            "     validateSchema: false,",
+            "     input(",
+            "          READING_ID as integer,",
+            "          SESSION_ID as integer,",
+            "          ELECTRODE_ID as integer,",
+            "          FREQUENCY_ID as integer,",
+            "          READING_DATETIME as timestamp,",
+            "          COUNT as integer,",
+            "          VALUE as decimal(7,3)",
+            "     ),",
+            "     deletable:false,",
+            "     insertable:true,",
+            "     updateable:false,",
+            "     upsertable:false,",
+            "     format: 'table',",
+            "     staged: true,",
+            "     allowCopyCommand: true,",
+            "     skipDuplicateMapInputs: true,",
+            "     skipDuplicateMapOutputs: true,",
+            "     errorHandlingOption: 'stopOnFirstError') ~> brainjammerTmpReading"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[concat(variables('workspaceId'), '/datasets/brainjammerAzureSqlReadingTable')]",
+        "[concat(variables('workspaceId'), '/datasets/brainjammerSynapseTmpReading')]"
+      ]
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/SQLPool')]",
+      "type": "Microsoft.Synapse/workspaces/sqlPools",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 263882790666240,
+        "annotations": [
+        ]
+      },
+      "dependsOn": [
+      ],
+      "location": "germanywestcentral"
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/Ch09ExM')]",
+      "type": "Microsoft.Synapse/workspaces/notebooks",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "nbformat": 4,
+        "nbformat_minor": 2,
+        "bigDataPool": {
+          "referenceName": "SparkPool",
+          "type": "BigDataPoolReference"
+        },
+        "sessionProperties": {
+          "driverMemory": "28g",
+          "driverCores": 4,
+          "executorMemory": "28g",
+          "executorCores": 4,
+          "numExecutors": 2,
+          "conf": {
+            "spark.dynamicAllocation.enabled": "false",
+            "spark.dynamicAllocation.minExecutors": "2",
+            "spark.dynamicAllocation.maxExecutors": "2",
+            "spark.autotune.trackingId": "71d11ce7-d6b4-4855-bf13-7b6b33ecf996"
+          }
+        },
+        "metadata": {
+          "saveOutput": true,
+          "enableDebugMode": false,
+          "kernelspec": {
+            "name": "synapse_spark",
+            "display_name": "scala"
+          },
+          "language_info": {
+            "name": "scala"
+          },
+          "a365ComputeOptions": {
+            "id": "/subscriptions/<subid>/resourceGroups/CSHARPGUITAR/providers/Microsoft.Synapse/workspaces/csharpguitar/bigDataPools/SparkPool",
+            "name": "SparkPool",
+            "type": "Spark",
+            "endpoint": "https://csharpguitar.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkPool",
+            "auth": {
+              "type": "AAD",
+              "authResource": "https://dev.azuresynapse.net"
+            },
+            "sparkVersion": "3.1",
+            "nodeCount": 3,
+            "cores": 4,
+            "memory": 28
+          },
+          "sessionKeepAliveTimeout": 30
+        },
+        "cells": [
+          {
+            "cell_type": "code",
+            "metadata": {
+              "microsoft": {
+                "language": "scala"
+              }
+            },
+            "source": [
+              "%%spark\r\n",
+              "import java.time._\r\n",
+              "\r\n",
+              "val CurrentDateTime = LocalDateTime.now\r\n",
+              "val CurrentTime = LocalTime.now\r\n",
+              "val year = CurrentDateTime.getYear()\r\n",
+              "val month = CurrentDateTime.getMonthValue()\r\n",
+              "val day = CurrentDateTime.getDayOfMonth()\r\n",
+              "val hour = CurrentTime.getHour()\r\n",
+              "\r\n",
+              "val random = new scala.util.Random\r\n",
+              "val start = 200000\r\n",
+              "val end = 2000000\r\n",
+              "val selected = start + random.nextInt((end - start) + 1)\r\n",
+              "\r\n",
+              "val appender = year + \"_\" + month + \"_\" + day + \"_\" + hour + \"_\" + selected\r\n",
+              "\r\n",
+              "val df = spark.read.sqlanalytics(\"SQLPool.brainwaves.FactREADING\").limit(selected)\r\n",
+              "val path = \"abfss://brainjammer@csharpguitar.dfs.core.windows.net/EMEA/brainjammer/in/\" + year + \"/\" + month + \"/\" + day + \"/\" + hour + \"/brainjammerFacts_\" + appender + \".parquet\"\r\n",
+              "df.write.mode(\"overwrite\").option(\"header\", \"true\").parquet(path)"
+            ],
+            "outputs": [
+            ],
+            "execution_count": 29
+          }
+        ]
+      },
+      "dependsOn": [
+      ]
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/SparkPool')]",
+      "type": "Microsoft.Synapse/workspaces/bigDataPools",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "autoPause": {
+          "enabled": true,
+          "delayInMinutes": 15
+        },
+        "autoScale": {
+          "enabled": true,
+          "maxNodeCount": 3,
+          "minNodeCount": 3
+        },
+        "nodeCount": 3,
+        "nodeSize": "Small",
+        "nodeSizeFamily": "MemoryOptimized",
+        "sparkVersion": "3.1",
+        "isComputeIsolationEnabled": false,
+        "sessionLevelPackagesEnabled": false,
+        "annotations": [
+        ]
+      },
+      "dependsOn": [
+      ],
+      "location": "germanywestcentral"
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/default')]",
+      "type": "Microsoft.Synapse/workspaces/managedVirtualNetworks",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+      },
+      "dependsOn": [
+      ]
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/brainjammerAzureSqlReadingTable')]",
+      "type": "Microsoft.Synapse/workspaces/datasets",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "[parameters('BrainjammerAzureSQL')]",
+          "type": "LinkedServiceReference"
+        },
+        "annotations": [
+        ],
+        "type": "AzureSqlTable",
+        "schema": [
+          {
+            "name": "READING_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "SESSION_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "ELECTRODE_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "FREQUENCY_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "READING_DATETIME",
+            "type": "datetime",
+            "precision": 23,
+            "scale": 3
+          },
+          {
+            "name": "COUNT",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "VALUE",
+            "type": "decimal",
+            "precision": 7,
+            "scale": 3
+          }
+        ],
+        "typeProperties": {
+          "schema": "dbo",
+          "table": "READING"
+        }
+      },
+      "dependsOn": [
+      ]
+    },
+    {
+      "name": "[concat(parameters('workspaceName'), '/brainjammerSynapseTmpReading')]",
+      "type": "Microsoft.Synapse/workspaces/datasets",
+      "apiVersion": "2019-06-01-preview",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "[parameters('csharpguitar-synapse-WorkspaceDefaultSqlServer')]",
+          "type": "LinkedServiceReference",
+          "parameters": {
+            "DBName": "SQLPool"
+          }
+        },
+        "annotations": [
+        ],
+        "type": "AzureSqlDWTable",
+        "schema": [
+          {
+            "name": "READING_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "SESSION_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "ELECTRODE_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "FREQUENCY_ID",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "READING_DATETIME",
+            "type": "datetime",
+            "precision": 23,
+            "scale": 3
+          },
+          {
+            "name": "COUNT",
+            "type": "int",
+            "precision": 10
+          },
+          {
+            "name": "VALUE",
+            "type": "decimal",
+            "precision": 7,
+            "scale": 3
+          }
+        ],
+        "typeProperties": {
+          "schema": "brainwaves",
+          "table": "TmpREADING"
+        }
+      },
+      "dependsOn": [
+      ]
+    }
+  ]
+}
