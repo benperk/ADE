@@ -1,0 +1,23 @@
+{
+	"name": "CompactedCSVs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "csharpguitar-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "EMEA/brainjammer/in/2022/11/30/14",
+				"fileSystem": "brainjammer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
