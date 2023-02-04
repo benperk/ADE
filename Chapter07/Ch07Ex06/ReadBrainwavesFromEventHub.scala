@@ -1,5 +1,6 @@
 // Databricks notebook source
 import org.apache.spark.eventhubs.{ConnectionStringBuilder, EventHubsConf}
+import org.apache.spark.sql.types.LongType
 
 val eventHubName = "..."
 val eventHubNSConnStr = "Endpoint=sb://..."
