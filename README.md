@@ -13,3 +13,5 @@ Microsoft Azure Data Engineer Study Guide Exam DP-203 covers the critical Micros
 + Get the confidence to pass the exam
 
 By learning all of these things plus using the Study Guide review questions and practice exams, the reader will be ready to take the exam and perform the job with confidence.
+
+[![Microsoft Certified Azure Data Engineer Associate - Complete Study Guide DP-203](ADE.PNG)](https://www.wiley.com/en-gb/MCA+Microsoft+Certified+Associate+Azure+Data+Engineer+Study+Guide%3A+Exam+DP+203-p-9781119885429)
